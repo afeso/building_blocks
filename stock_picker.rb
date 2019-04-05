@@ -17,7 +17,10 @@ def stock_picker(prices)
   best_buy_day = new_price.index(best_buy_and_sell_price[1].to_i)
   best_sell_day = new_price.index(best_buy_and_sell_price[0].to_i)
 
-  [best_buy_day, best_sell_day].inspect
+  p [best_buy_day, best_sell_day]
+  puts "Buy on day #{best_buy_day} at $#{best_buy_and_sell_price[1]} \
+  and Sell on day #{best_sell_day} at $#{best_buy_and_sell_price[0]} \
+  for a profit of $#{max_profit}"
 end
 
 puts stock_picker([17, 3, 6, 9, 15, 8, 6, 1, 10])

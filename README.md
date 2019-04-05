@@ -6,3 +6,6 @@ a repo for ruby excersises
 
 # 03-04-19
 - Added Stock Picker Solution
+
+# 04-04-19
+- Added substrings
