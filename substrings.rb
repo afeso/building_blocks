@@ -2,11 +2,11 @@
                  own part partner sit]
 @strings_found = {}
 
-def substrings(words, dictionary = @dictionary)
-  words.downcase!
-  words = words.split(' ')
+def substrings(phrase, dictionary = @dictionary)
+  phrase.downcase!
+  phrase = phrase.split(' ')
 
-  words.each do |word|
+  phrase.each do |word|
     find_match(word, dictionary)
   end
 
