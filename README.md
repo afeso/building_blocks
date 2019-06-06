@@ -9,3 +9,6 @@ a repo for ruby excersises
 
 # 04-04-19
 - Added substrings
+
+# 06-06-19
+- Added bubble sorting method
