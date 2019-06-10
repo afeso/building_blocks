@@ -12,3 +12,6 @@ a repo for ruby excersises
 
 # 06-06-19
 - Added bubble sorting method
+
+# 10-06-19
+- added bubble_sort_by method which accepts blocks
