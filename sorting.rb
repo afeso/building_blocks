@@ -1,43 +1,30 @@
-numbers = [4, 3, 78, 2, 0, 2]
+# frozen_string_literal: true
 
-def bubble_sort(elements)
-  return "'#{elements}' is not an enumerable object" unless elements.is_a?(Array)
+# function for switching values in an array
+def switch_value(arr, val1, val2, index)
+  unless index.nil?
+    arr[index] = val2
+    arr[index + 1] = val1
+  end
+end
 
-  run = elements.length - 1
+def bubble_sort(obj)
+  return "#{obj.upcase} is not an enumerable object" unless obj.is_a?(Array)
+
+  run = obj.length - 1
 
   run.times do
-    # value1 = elements[index]
-    # value2 = elements[index + 1]
-    elements.length.times do |index|
-      value1 = elements[index]
-      value2 = elements[index + 1]
+    obj.length.times do |index|
+      val1 = obj[index]
+      val2 = obj[index + 1]
 
-      if !value2.nil? && value1 <= value2
-        next
-      else
-        # elements[index] = value2 unless value2.nil?
-        # elements[index] = value2
-        # elements[index + 1] = value1
-        switch_value(elements, value1, value2, index)
+      unless val2.nil?
+        switch_value(obj, val1, val2, index) if val1 > val2
       end
     end
   end
-  elements.compact
+  obj
 end
-
-def switch_value(elements, val1, val2, index)
-  elements[index] = val2
-  elements[index + 1] = val1
-  # elements
-end
-
-p bubble_sort(numbers)
-p bubble_sort([98, 88, 78, 68, 48, 38, 28, 18, 8])
-p bubble_sort(%w[this is a pencil])
-p bubble_sort('The Quick Black Fox')
-
-puts 'starting bubble sort by:'
-puts ''
 
 def bubble_sort_by(array)
   first = second = nil
@@ -48,7 +35,7 @@ def bubble_sort_by(array)
       first = array[index]
       second = array[index + 1]
       comparison_result = yield(first, second) unless second.nil?
-      
+
       unless comparison_result.nil?
         switch_value(array, first, second, index) if comparison_result.positive?
       end
@@ -57,14 +44,18 @@ def bubble_sort_by(array)
   array
 end
 
+p bubble_sort([4, 3, 78, 2, 0, 2])
+p bubble_sort([98, 88, 78, 68, 48, 38, 28, 18, 8])
+p bubble_sort(%w[this is a pencil])
+p bubble_sort('The Quick Black Fox')
+
+puts 'starting bubble sort by:'
+puts ''
+
 my_sort = bubble_sort_by(%w[hi hello hey]) do |left, right|
   left.length - right.length
 end
 
 p my_sort
 
-ruby_sort = %w[hi hey hello].sort do |left, right|
-  left.length - right.length
-end
-
-p ruby_sort
+p bubble_sort_by(%w[this is a pen]) { |a, b| b <=> a }
