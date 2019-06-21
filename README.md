@@ -14,4 +14,7 @@ a repo for ruby excersises
 - Added bubble sorting method
 
 # 10-06-19
-- added bubble_sort_by method which accepts blocks
+- added bubble_sort_by method which accepts blocks 
+
+# 21-06-19
+- Enumerables: Creating own version of ruby's enumerable methods
